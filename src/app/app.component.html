@@ -1,0 +1,35 @@
+<p>{{title}}</p>
+
+
+<h3>Get our data</h3>
+
+<table *ngIf="data">
+  <tr>
+    <th>ID</th>
+    <th>Title</th>
+    <th>Release Date</th>
+    <th></th>
+  </tr>
+  <tr  *ngFor="let i of data">
+    <td>{{i.id}}</td>
+    <td>{{i.title}}</td>
+    <td>{{i.releaseDate}}</td>
+<!--    <td (click)="deleteone(1)">Delete</td>-->
+  </tr>
+
+</table>
+
+
+
+<h3>Add new one</h3>
+
+
+<form id = 'newOne' #newOne = 'ngForm' (ngSubmit)="addnewOne(newOne.value)">
+  <label>id</label>
+  <input type = number name="id" id="id" placeholder="id" ngModel><br><br>
+  <label>title</label>
+  <input type = text name="title" id="title" placeholder="title" ngModel> <br><br>
+  <label>releaseDate</label>
+  <input type = date name="releaseDate" id="releaseDate" placeholder="releaseDate" ngModel>
+  <input type = submit value="Add new one">
+</form>
